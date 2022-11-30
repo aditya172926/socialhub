@@ -1,7 +1,6 @@
 import { ethers } from "ethers";
 import { useEffect, useState } from "react";
 import AuthContext from "../context/auth";
-import useConnectWallet from "../hooks/useConnectWallet";
 
 let ethersProvider;
 if (window.ethereum) {
@@ -28,6 +27,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     const connectWallet = async () => {
+        console.log("Called connect wallet");
         try {
             const { ethereum } = window;
             if (!ethereum) {
@@ -105,9 +105,5 @@ export const AuthProvider = ({ children }) => {
             {children}
         </AuthContext.Provider>
     )
-
-
-
-
 
 }

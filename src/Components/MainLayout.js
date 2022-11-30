@@ -1,15 +1,17 @@
 import {Button} from '@chakra-ui/react';
 import { useContext, useEffect, useState } from 'react';
 import AuthContext from '../context/auth';
-import ConnectLens from './ConnectLens';
+import AuthModal from './AuthModal';
 
 const MainLayout = () => {
     const authContext = useContext(AuthContext);
 
-    if (!authContext.userLens?.profile) {
+    if (!authContext.address) {
         
+    }
+    if (!authContext.userLens?.profile || !authContext.address) {
         return (
-            <ConnectLens openModal = {true} />
+            <AuthModal openModal = {true} />
         );
     }
 }
