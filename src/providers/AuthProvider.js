@@ -14,9 +14,6 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState();
     const [userLens, setUserLens] = useState();
     const [provider, setProvider] = useState(undefined);
-    const [web3Instance, setWeb3Instatce] = useState({ eth: () => { } });
-    const [isMetamask, setIsMetamask] = useState(true);
-
 
     const fetchSignAccount = async () => {
         try {
@@ -83,12 +80,12 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         console.log('User Lens in Auth Provider', userLens);
-        if (userLens?.profile?.id) {
-            findOrCreateUser({ address: address, lensHandle: userLens?.profile?.handle, lensId: userLens?.profile?.id }).then(data => {
-                console.log('Find or create user', data);
-                setUser(data);
-            })
-        }
+        // if (userLens?.profile?.id) {
+        //     findOrCreateUser({ address: address, lensHandle: userLens?.profile?.handle, lensId: userLens?.profile?.id }).then(data => {
+        //         console.log('Find or create user', data);
+        //         setUser(data);
+        //     })
+        // }
     }, [userLens]);
 
     useEffect(() => {
